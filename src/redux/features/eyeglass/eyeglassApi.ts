@@ -3,10 +3,10 @@ import { api } from "../../api/apiSlice";
 const eyeglassApi = api.injectEndpoints({
   endpoints: (builder) => ({
     getEyeGlass: builder.query({
-      query: () => "/eyeglass/",
+      query: () => "/eyeglass",
     }),
     getSingleEyeGlass: builder.query({
-      query: (id) => `/eyeglass/${id}`,
+      query: (id) => `eyeglass/${id}`,
     }),
     postEyeGlass: builder.mutation({
       query: ({ data }) => ({

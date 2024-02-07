@@ -38,13 +38,13 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a>Portfolio</a>
+              <Link to="/eyeglass">EyeGlasses</Link>
             </li>
             <li>
-              <a>About</a>
+              <Link to="/eyeglass/create">Add New EyeGlass</Link>
             </li>
           </ul>
         </div>

@@ -5,7 +5,7 @@ import Signup from "../pages/Signup";
 import NotFound from "../pages/NotFound";
 import Home from "../pages/Home";
 import EyeGlass from "../pages/EyeGlass";
-import PrivateRoute from "./privateRoute";
+import PrivateRoute from "./PrivateRoute";
 import AddEyeGlass from "../pages/AddEyeGlass";
 import EyeGlassDetails from "../pages/EyeGlassDetails";
 
