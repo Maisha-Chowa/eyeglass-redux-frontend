@@ -7,6 +7,7 @@ import { createUser, loginWithGoogle } from "../redux/features/User/userSlice";
 import { useAppDispatch, useAppSelector } from "../redux/hook";
 import { Link, useNavigate } from "react-router-dom";
 import { cn } from "../lib/utils";
+import { usePostNewUserMutation } from "../redux/features/User/userApi";
 
 type UserAuthFormProps = React.HTMLAttributes<HTMLDivElement>;
 
@@ -24,9 +25,16 @@ export default function SignupForm({ className, ...props }: UserAuthFormProps) {
 
   const dispatch = useAppDispatch();
   const { user, isLoading } = useAppSelector((state) => state.user);
+
+  console.log(isLoading);
+  //console.log(isError);
+  //console.log(isSuccess);
+  const [postNewUser, ...options] = usePostNewUserMutation();
   const navigate = useNavigate();
   const onSubmit = (data: SignupFormInputs) => {
-    console.log(data);
+    console.log({ email: data.email, password: data.password });
+    postNewUser({ email: data.email, password: data.password });
+    console.log(options);
     dispatch(createUser({ email: data.email, password: data.password }));
   };
 
