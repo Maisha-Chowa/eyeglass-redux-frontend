@@ -1,6 +1,11 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import { useGetSingleEyeGlassQuery } from "../redux/features/eyeglass/eyeglassApi";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  useDeleteEyeGlassMutation,
+  useGetSingleEyeGlassQuery,
+} from "../redux/features/eyeglass/eyeglassApi";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const EyeGlassDetails = () => {
   const { id } = useParams();
@@ -12,6 +17,23 @@ const EyeGlassDetails = () => {
   console.log(error);
   const productsData = data?.data;
   console.log(productsData);
+
+  const [deleteEyeGlass] = useDeleteEyeGlassMutation();
+  const navigate = useNavigate();
+  
+  const handleupdate = () => {
+    navigate(`/eyeglass/update/${id}`);
+  };
+  const handleDelete = () => {
+    deleteEyeGlass(id);
+    toast.success("Eye Glass Deleted!", {
+      position: "top-center",
+    });
+    setTimeout(() => {
+      navigate("/eyeglass");
+    }, 3000);
+  };
+
   return (
     <>
       <div className="flex max-w-7xl mx-auto items-center border-b border-gray-300">
@@ -54,9 +76,23 @@ const EyeGlassDetails = () => {
             <span className="font-semibold"> Color: </span>
             {productsData?.color}
           </p>
-          <button className="bg-emerald-500 p-4 rounded-xl text-white">
-            Add to Wishlist
-          </button>
+          <div className="flex flex-row ">
+            <button
+              onClick={handleupdate}
+              className="bg-emerald-500 p-4 rounded-xl text-white mx-4 "
+            >
+              Update EyeGlass
+            </button>
+            <>
+              <button
+                onClick={handleDelete}
+                className="bg-emerald-500 p-4 rounded-xl text-white"
+              >
+                Delete EyeGlass
+              </button>
+              <ToastContainer />
+            </>
+          </div>
         </div>
       </div>
     </>

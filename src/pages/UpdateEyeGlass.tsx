@@ -1,7 +1,12 @@
 import React, { FormEvent, useRef } from "react";
-import { usePostEyeGlassMutation } from "../redux/features/eyeglass/eyeglassApi";
+import { useParams } from "react-router-dom";
+import {
+  useGetSingleEyeGlassQuery,
+  useUpdateEyeGlassMutation,
+} from "../redux/features/eyeglass/eyeglassApi";
+import { IEyeGlass } from "../types/globalTypes";
 
-const AddEyeGlass = () => {
+const UpdateEyeGlass = () => {
   const nameRef = useRef<HTMLInputElement>(null);
   const priceRef = useRef<HTMLInputElement>(null);
   const quantityRef = useRef<HTMLInputElement>(null);
@@ -13,12 +18,19 @@ const AddEyeGlass = () => {
   const genderRef = useRef<HTMLInputElement>(null);
   const colorRef = useRef<HTMLInputElement>(null);
 
-  const [postEyeGlass, { isLoading, isError, isSuccess }] =
-    usePostEyeGlassMutation();
-  console.log(isLoading);
-  console.log(isError);
-  console.log(isSuccess);
+  const { id } = useParams();
+  const _id = id;
+  //console.log("id", id);
 
+  const { data, isLoading, error } = useGetSingleEyeGlassQuery(_id);
+
+  //console.log(data);
+  console.log(isLoading);
+  console.log(error);
+  const productsData = data?.data;
+  console.log(productsData);
+
+  const [updateEyeGlass] = useUpdateEyeGlassMutation();
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const name = nameRef?.current?.value;
@@ -32,7 +44,8 @@ const AddEyeGlass = () => {
     const gender = genderRef?.current?.value;
     const color = colorRef?.current?.value;
 
-    const inputValue = {
+    const inputValue: IEyeGlass = {
+      id,
       name,
       price,
       quantity,
@@ -44,21 +57,15 @@ const AddEyeGlass = () => {
       gender,
       color,
     };
-    console.log(inputValue);
-
-    const options = {
-      data: inputValue,
-    };
-
-    console.log(options.data);
-    await postEyeGlass(options.data);
+    console.log("i", inputValue);
+    await updateEyeGlass(inputValue);
     (event.target as HTMLFormElement).reset();
   };
   return (
     <div className="max-w-7xl mx-auto mt-5">
       <h2 className="text-3xl font-semibold p-5 text-center">
         {" "}
-        Add New Eye Glass
+        Update Eye Glass
       </h2>
       <form onSubmit={handleSubmit}>
         <div className="grid gap-2">
@@ -66,8 +73,8 @@ const AddEyeGlass = () => {
             <input
               className="input input-bordered"
               id="name"
-              placeholder="name"
               type="text"
+              defaultValue={productsData?.name}
               ref={nameRef}
             />
 
@@ -77,6 +84,7 @@ const AddEyeGlass = () => {
               placeholder="price"
               type="text"
               ref={priceRef}
+              defaultValue={productsData?.price}
             />
 
             <input
@@ -85,6 +93,7 @@ const AddEyeGlass = () => {
               placeholder="quantity"
               type="text"
               ref={quantityRef}
+              defaultValue={productsData?.quantity}
             />
 
             <input
@@ -93,6 +102,7 @@ const AddEyeGlass = () => {
               placeholder="image"
               type="text"
               ref={imageRef}
+              defaultValue={productsData?.image}
             />
 
             <input
@@ -101,6 +111,7 @@ const AddEyeGlass = () => {
               placeholder="frameMaterial"
               type="text"
               ref={frameMaterialRef}
+              defaultValue={productsData?.frameMaterial}
             />
 
             <input
@@ -109,6 +120,7 @@ const AddEyeGlass = () => {
               placeholder="frameShape"
               type="text"
               ref={frameShapeRef}
+              defaultValue={productsData?.frameShape}
             />
 
             <input
@@ -117,6 +129,7 @@ const AddEyeGlass = () => {
               placeholder="lensType"
               type="text"
               ref={lensTypeRef}
+              defaultValue={productsData?.lensType}
             />
 
             <input
@@ -125,6 +138,7 @@ const AddEyeGlass = () => {
               placeholder="brand"
               type="text"
               ref={brandRef}
+              defaultValue={productsData?.brand}
             />
 
             <input
@@ -133,6 +147,7 @@ const AddEyeGlass = () => {
               placeholder="gender"
               type="text"
               ref={genderRef}
+              defaultValue={productsData?.gender}
             />
 
             <input
@@ -141,13 +156,14 @@ const AddEyeGlass = () => {
               placeholder="Color"
               type="text"
               ref={colorRef}
+              defaultValue={productsData?.color}
             />
           </div>
           <button
             type="submit"
             className="rounded-full h-15 w-15 p-2 text-1xl bg-teal-300"
           >
-            Add Eye Glass
+            Update Eye Glass
           </button>
         </div>
       </form>
@@ -155,4 +171,4 @@ const AddEyeGlass = () => {
   );
 };
 
-export default AddEyeGlass;
+export default UpdateEyeGlass;

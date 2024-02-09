@@ -8,6 +8,7 @@ import EyeGlass from "../pages/EyeGlass";
 import PrivateRoute from "./PrivateRoute";
 import AddEyeGlass from "../pages/AddEyeGlass";
 import EyeGlassDetails from "../pages/EyeGlassDetails";
+import UpdateEyeGlass from "../pages/UpdateEyeGlass";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddEyeGlass />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: `/eyeglass/update/:id`,
+        element: (
+          <PrivateRoute>
+            <UpdateEyeGlass />
           </PrivateRoute>
         ),
       },
