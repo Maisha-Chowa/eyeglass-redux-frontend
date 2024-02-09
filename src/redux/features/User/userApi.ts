@@ -12,17 +12,9 @@ const userApi = api.injectEndpoints({
         method: "POST",
         body: data,
       }),
-      invalidatesTags: ["comments"],
+      invalidatesTags: ["eyeglass"],
     }),
   }),
 });
 
-export const {
-  usePostNewUserMutation,
-  useGetUsersQuery,
-  // useGetBooksQuery,
-  // useSingleBookQuery,
-  // useGetReviewQuery,
-  // usePostReviewMutation,
-  // usePostNewBookMutation,
-} = userApi;
+export const { usePostNewUserMutation, useGetUsersQuery } = userApi;

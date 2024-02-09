@@ -20,7 +20,7 @@ const EyeGlassDetails = () => {
 
   const [deleteEyeGlass] = useDeleteEyeGlassMutation();
   const navigate = useNavigate();
-  
+
   const handleupdate = () => {
     navigate(`/eyeglass/update/${id}`);
   };
@@ -34,6 +34,10 @@ const EyeGlassDetails = () => {
     }, 3000);
   };
 
+  const handleSale = () => {
+    navigate(`/eyeglass/sale/${id}`);
+  };
+
   return (
     <>
       <div className="flex max-w-7xl mx-auto items-center border-b border-gray-300">
@@ -42,7 +46,16 @@ const EyeGlassDetails = () => {
         </div>
 
         <div className="w-[50%] space-y-3">
-          <h1 className="text-3xl font-semibold"> {productsData?.name}</h1>
+          <div className="flex flex-row">
+            <h1 className="text-3xl font-semibold"> {productsData?.name}</h1>
+            <button
+              onClick={handleSale}
+              className="bg-emerald-500 p-4 rounded-xl text-white m-4"
+            >
+              Sell
+            </button>
+          </div>
+
           <h1 className="text-xl font-semibold">
             Price: {productsData?.price}
           </h1>

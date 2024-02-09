@@ -9,6 +9,8 @@ import PrivateRoute from "./PrivateRoute";
 import AddEyeGlass from "../pages/AddEyeGlass";
 import EyeGlassDetails from "../pages/EyeGlassDetails";
 import UpdateEyeGlass from "../pages/UpdateEyeGlass";
+import SaleEyeGlass from "../pages/SaleEyeGlass";
+import SalesHistory from "../pages/SalesHistory";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +50,22 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <UpdateEyeGlass />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: `/sale-history`,
+        element: (
+          <PrivateRoute>
+            <SalesHistory />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: `/eyeglass/sale/:id`,
+        element: (
+          <PrivateRoute>
+            <SaleEyeGlass />
           </PrivateRoute>
         ),
       },

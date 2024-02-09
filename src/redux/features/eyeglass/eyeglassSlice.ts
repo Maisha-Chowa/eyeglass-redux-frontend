@@ -8,6 +8,7 @@ interface IEyeGlass {
   price: string;
   gender: string;
   color: string;
+  quantity: string;
 }
 const initialState: IEyeGlass = {
   frameMaterial: "",
@@ -17,6 +18,7 @@ const initialState: IEyeGlass = {
   price: "",
   gender: "",
   color: "",
+  quantity: "",
 };
 
 const eyeglassesFilterSlice = createSlice({

@@ -46,6 +46,9 @@ const Navbar = () => {
             <li>
               <Link to="/eyeglass/create">Add New EyeGlass</Link>
             </li>
+            <li>
+              <Link to="/sale-history">Sale History</Link>
+            </li>
           </ul>
         </div>
       </div>

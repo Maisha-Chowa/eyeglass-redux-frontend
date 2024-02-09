@@ -8,7 +8,7 @@ const Card = ({ EyeGlass }: IProps) => {
   const navigate = useNavigate(); // Move this line outside the function
 
   const handleNavigation = (EyeGlass: IEyeGlass) => {
-    const id = EyeGlass._id;
+    const id = EyeGlass.id;
     console.log(id);
     navigate(`/eyeglass/${id}`);
   };
