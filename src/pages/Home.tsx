@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useGetEyeGlassQuery } from "../redux/features/eyeglass/eyeglassApi";
 import { IEyeGlass } from "../types/globalTypes";

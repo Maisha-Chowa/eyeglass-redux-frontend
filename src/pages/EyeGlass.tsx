@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { useGetEyeGlassQuery } from "../redux/features/eyeglass/eyeglassApi";
 import Card from "../components/Card";
 import { IEyeGlass } from "../types/globalTypes";

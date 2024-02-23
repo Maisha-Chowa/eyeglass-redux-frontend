@@ -1,4 +1,3 @@
-import React from "react";
 import { useGetAllSalesQuery } from "../redux/features/sales/salesApi";
 import { ISalesInfo } from "../redux/features/sales/salesSlice";
 

@@ -1,12 +1,12 @@
-import { useAppSelector } from '../redux/hook';
-import { ReactNode } from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
+import { useAppSelector } from "../redux/hook";
+import { ReactNode } from "react";
+import { Navigate, useLocation } from "react-router-dom";
 
 interface IProps {
   children: ReactNode;
 }
 
-export default function PrivateRoute({ children }: IProps) {
+const PrivateRoute  = ({ children }: IProps):JSX.Element => {
   const { user, isLoading } = useAppSelector((state) => state.user);
 
   const { pathname } = useLocation();
@@ -19,5 +19,6 @@ export default function PrivateRoute({ children }: IProps) {
     return <Navigate to="/login" state={{ path: pathname }} />;
   }
 
-  return children;
-}
+  return <>{children}</>;
+};
+export default PrivateRoute;

@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../redux/hook";
 import { loginUser } from "../redux/features/User/userSlice";
 import { cn } from "../lib/utils";
@@ -27,10 +27,13 @@ export default function LoginForm({ className, ...props }: UserAuthFormProps) {
     console.log(data);
     dispatch(loginUser({ email: data.email, password: data.password }));
   };
+  const location = useLocation();
+  const from = location?.state?.path || "/";
+  console.log(from);
 
   React.useEffect(() => {
     if (user.email && !isLoading) {
-      navigate("/");
+      navigate(from, { replace: true });
     }
   }, [user.email, isLoading]);
 

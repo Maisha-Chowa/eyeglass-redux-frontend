@@ -1,11 +1,16 @@
-import React, { FormEvent, useRef, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useGetSingleEyeGlassQuery } from "../redux/features/eyeglass/eyeglassApi";
+import {
+  useGetSingleEyeGlassQuery,
+  useUpdateEyeGlassMutation,
+} from "../redux/features/eyeglass/eyeglassApi";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { usePostSalesMutation } from "../redux/features/sales/salesApi";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { IEyeGlass } from "../types/globalTypes";
+
 const SaleEyeGlass = () => {
   const { id } = useParams();
 
@@ -14,7 +19,7 @@ const SaleEyeGlass = () => {
   const [postSales] = usePostSalesMutation();
   const productsData = data?.data;
   console.log(productsData);
-
+  const [updateEyeGlass] = useUpdateEyeGlassMutation();
   const quantityRef = useRef<HTMLInputElement>(null);
   const nameRef = useRef<HTMLInputElement>(null);
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -35,12 +40,26 @@ const SaleEyeGlass = () => {
         NameOfTheBuyer,
         DateOfTheSale,
       };
-      console.log(inputValue);
+
+      console.log(
+        "quantity",
+        Number(productsData.quantity) - Number(inputValue.QuantityOfTheProduct)
+      );
       const options = {
         data: inputValue,
       };
-      console.log(options.data);
+      //console.log(options.data);
       await postSales(options.data);
+
+      const updateQuantity =
+        Number(productsData.quantity) - Number(inputValue.QuantityOfTheProduct);
+      const updatedInfo: Partial<IEyeGlass> = {
+        id: productsData?._id,
+        quantity: updateQuantity.toString(),
+      };
+      // console.log(updatedInfo);
+
+      await updateEyeGlass(updatedInfo);
       (event.target as HTMLFormElement).reset();
     }
   };
