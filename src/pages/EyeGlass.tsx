@@ -162,7 +162,7 @@ const EyeGlass = () => {
           />
           <button
             type="submit"
-            className="rounded-full h-15 w-15 p-2 m-2 text-white bg-teal-300"
+            className="rounded-full h-15 w-15 p-2 m-2 text-slate-600 font-bold bg-amber-300"
             onClick={handlePrice}
           >
             Find
@@ -180,7 +180,7 @@ const EyeGlass = () => {
           <button
             onClick={handleFrameMaterial}
             type="submit"
-            className="rounded-full h-15 w-15 p-2 m-2 text-white bg-teal-300"
+            className="rounded-full h-15 w-15 p-2 m-2 text-slate-600 font-bold bg-amber-300"
           >
             Find
           </button>
@@ -196,7 +196,7 @@ const EyeGlass = () => {
           />
           <button
             type="submit"
-            className="rounded-full h-15 w-15 p-2 m-2 text-white bg-teal-300"
+            className="rounded-full h-15 w-15 p-2 m-2 text-slate-600 font-bold bg-amber-300"
             onClick={handleFrameShape}
           >
             Find
@@ -213,7 +213,7 @@ const EyeGlass = () => {
           />
           <button
             type="submit"
-            className="rounded-full h-15 w-15 p-2 m-2 text-white bg-teal-300"
+            className="rounded-full h-15 w-15 p-2 m-2 text-slate-600 font-bold bg-amber-300"
             onClick={handleLensType}
           >
             Find
@@ -231,7 +231,7 @@ const EyeGlass = () => {
           />
           <button
             type="submit"
-            className="rounded-full h-15 w-15 p-2 m-2 text-white bg-teal-300"
+            className="rounded-full h-15 w-15 p-2 m-2 text-slate-600 font-bold bg-amber-300"
             onClick={handleBrand}
           >
             Find
@@ -249,7 +249,7 @@ const EyeGlass = () => {
           />
           <button
             type="submit"
-            className="rounded-full h-15 w-15 p-2 m-2 text-white bg-teal-300"
+            className="rounded-full h-15 w-15 p-2 m-2 text-slate-600 font-bold bg-amber-300"
             onClick={handleGender}
           >
             Find
@@ -267,7 +267,7 @@ const EyeGlass = () => {
           />
           <button
             type="submit"
-            className="rounded-full h-15 w-15 p-2 m-2 text-white bg-teal-300"
+            className="rounded-full h-15 w-15 p-2 m-2 text-slate-600 font-bold bg-amber-300"
             onClick={handleColor}
           >
             Find

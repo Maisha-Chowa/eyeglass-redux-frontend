@@ -22,7 +22,7 @@ const Card = ({ EyeGlass }: IProps) => {
         <p className="text-xl">Quantity: {EyeGlass?.quantity}</p>
         <p className="text-xl">Frame Material: {EyeGlass?.frameMaterial}</p>
         <button
-          className="bg-emerald-500 p-4 rounded-xl text-white"
+          className="bg-amber-300 p-4 rounded-xl text-slate-600 font-bold"
           onClick={() => handleNavigation(EyeGlass)}
         >
           EyeGLass Details

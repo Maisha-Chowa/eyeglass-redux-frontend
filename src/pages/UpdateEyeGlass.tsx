@@ -11,11 +11,11 @@ const UpdateEyeGlass = () => {
   const priceRef = useRef<HTMLInputElement>(null);
   const quantityRef = useRef<HTMLInputElement>(null);
   const imageRef = useRef<HTMLInputElement>(null);
-  const frameMaterialRef = useRef<HTMLInputElement>(null);
-  const frameShapeRef = useRef<HTMLInputElement>(null);
-  const lensTypeRef = useRef<HTMLInputElement>(null);
+  const frameMaterialRef = useRef<HTMLOptionElement>(null);
+  const frameShapeRef = useRef<HTMLOptionElement>(null);
+  const lensTypeRef = useRef<HTMLOptionElement>(null);
   const brandRef = useRef<HTMLInputElement>(null);
-  const genderRef = useRef<HTMLInputElement>(null);
+  const genderRef = useRef<HTMLOptionElement>(null);
   const colorRef = useRef<HTMLInputElement>(null);
 
   const { id } = useParams();
@@ -62,12 +62,12 @@ const UpdateEyeGlass = () => {
     (event.target as HTMLFormElement).reset();
   };
   return (
-    <div className="max-w-7xl mx-auto mt-5">
-      <h2 className="text-3xl font-semibold p-5 text-center">
+    <div className="max-w-5xl mx-auto mt-5">
+      <h2 className="text-3xl font-semibold p-5 text-center text-amber-300">
         {" "}
         Update Eye Glass
       </h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="my-12">
         <div className="grid gap-2">
           <div className="grid gap-1">
             <input
@@ -105,32 +105,57 @@ const UpdateEyeGlass = () => {
               defaultValue={productsData?.image}
             />
 
-            <input
-              className="input input-bordered"
-              id="frameMaterial"
-              placeholder="frameMaterial"
-              type="text"
-              ref={frameMaterialRef}
-              defaultValue={productsData?.frameMaterial}
-            />
-
-            <input
-              className="input input-bordered"
-              id="frameShape"
-              placeholder="frameShape"
-              type="text"
-              ref={frameShapeRef}
-              defaultValue={productsData?.frameShape}
-            />
-
-            <input
-              className="input input-bordered"
-              id="lensType"
-              placeholder="lensType"
-              type="text"
-              ref={lensTypeRef}
-              defaultValue={productsData?.lensType}
-            />
+            <label className="font-bold  text-amber-300">Frame Material</label>
+            <select className="input input-bordered" id="frameMaterial">
+              <option
+                ref={frameMaterialRef}
+                defaultValue={productsData?.frameMaterial}
+              >
+                {productsData?.frameMaterial}
+              </option>
+              <option ref={frameMaterialRef} value="plastic">
+                Plastic
+              </option>
+              <option ref={frameMaterialRef} value="acetate">
+                Acetate
+              </option>
+              <option ref={frameMaterialRef} value="metal">
+                Metal
+              </option>
+            </select>
+            <label className="font-bold  text-amber-300">Frame Shape</label>
+            <select className="input input-bordered" id="frameShape">
+              <option
+                ref={frameShapeRef}
+                defaultValue={productsData?.frameShape}
+              >
+                {productsData?.frameShape}
+              </option>
+              <option ref={frameShapeRef} value="rectangular">
+                Rectangular
+              </option>
+              <option ref={frameShapeRef} value="round">
+                Round
+              </option>
+              <option ref={frameShapeRef} value="cat-eye">
+                Cat-Eye
+              </option>
+            </select>
+            <label className="font-bold  text-amber-300">Lens Type</label>
+            <select className="input input-bordered" id="lensType">
+              <option ref={lensTypeRef} defaultValue={productsData?.lensType}>
+                {productsData?.lensType}
+              </option>
+              <option ref={lensTypeRef} value="single-vision">
+                single-vision
+              </option>
+              <option ref={lensTypeRef} value="bifocal">
+                bifocal
+              </option>
+              <option ref={lensTypeRef} value="progressive">
+                progressive
+              </option>
+            </select>
 
             <input
               className="input input-bordered"
@@ -141,14 +166,21 @@ const UpdateEyeGlass = () => {
               defaultValue={productsData?.brand}
             />
 
-            <input
-              className="input input-bordered"
-              id="gender"
-              placeholder="gender"
-              type="text"
-              ref={genderRef}
-              defaultValue={productsData?.gender}
-            />
+            <label className="font-bold  text-amber-300">Gender</label>
+            <select className="input input-bordered" id="gender">
+              <option ref={genderRef} defaultValue={productsData?.gender}>
+                {productsData?.gender}
+              </option>
+              <option ref={genderRef} value="men">
+                Men
+              </option>
+              <option ref={genderRef} value="women">
+                Women
+              </option>
+              <option ref={genderRef} value="unisex">
+                unisex
+              </option>
+            </select>
 
             <input
               className="input input-bordered"
@@ -161,7 +193,7 @@ const UpdateEyeGlass = () => {
           </div>
           <button
             type="submit"
-            className="rounded-full h-15 w-15 p-2 text-1xl bg-teal-300"
+            className="rounded-full h-15 w-15 p-2 text-1xl bg-amber-300 text-slate-600 font-bold font-bold"
           >
             Update Eye Glass
           </button>

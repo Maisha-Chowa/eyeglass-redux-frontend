@@ -22,7 +22,7 @@ const Home = () => {
       </div>
       <div className="container py-10 px-10 mx-0 min-w-full flex flex-col items-center">
         <button
-          className="bg-emerald-500 p-4 rounded-xl text-white text-2xl font-se rounded-xl"
+          className="bg-emerald-500 p-4 rounded-xl text-slate-600 font-bold text-2xl font-se rounded-xl"
           onClick={() => navigate(`/eyeglass`)}
         >
           Show All EyeGlass

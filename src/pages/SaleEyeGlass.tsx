@@ -66,8 +66,8 @@ const SaleEyeGlass = () => {
 
   return (
     <>
-      <div className="max-w-7xl mx-auto mt-5 my-24">
-        <h2 className="text-3xl font-semibold p-5 text-center">
+      <div className="max-w-5xl mx-auto mt-5 my-24">
+        <h2 className="text-3xl font-semibold p-5 text-center text-amber-300">
           Sale Eye Glass {productsData?.name}
         </h2>
         <form onSubmit={handleSubmit}>
@@ -81,7 +81,7 @@ const SaleEyeGlass = () => {
                 ref={nameRef}
               />
 
-              <div className="border-solid border-2 border-sky-500 rounded">
+              <div className="border-solid border-2 border-amber-300 rounded">
                 <DatePicker
                   selected={startDate}
                   onChange={(date) => setStartDate(date)}
@@ -98,7 +98,7 @@ const SaleEyeGlass = () => {
             </div>
             <button
               type="submit"
-              className="rounded-full h-15 w-15 p-2 text-white bg-sky-500"
+              className="rounded-full h-15 w-15 p-2 text-slate-600 font-bold bg-amber-300"
             >
               Sale Eye Glass
             </button>

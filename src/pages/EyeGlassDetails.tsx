@@ -49,7 +49,7 @@ const EyeGlassDetails = () => {
             <h1 className="text-3xl font-semibold"> {productsData?.name}</h1>
             <button
               onClick={handleSale}
-              className="bg-emerald-500 p-4 rounded-xl text-white m-4"
+              className="bg-amber-300 p-4 rounded-xl text-slate-600 font-bold m-4"
             >
               Sell
             </button>
@@ -91,14 +91,14 @@ const EyeGlassDetails = () => {
           <div className="flex flex-row ">
             <button
               onClick={handleupdate}
-              className="bg-emerald-500 p-4 rounded-xl text-white mx-4 "
+              className="bg-amber-300 p-4 rounded-xl text-slate-600 font-bold mx-4 "
             >
               Update EyeGlass
             </button>
             <>
               <button
                 onClick={handleDelete}
-                className="bg-emerald-500 p-4 rounded-xl text-white"
+                className="bg-amber-300 p-4 rounded-xl text-slate-600 font-bold"
               >
                 Delete EyeGlass
               </button>

@@ -6,11 +6,11 @@ const AddEyeGlass = () => {
   const priceRef = useRef<HTMLInputElement>(null);
   const quantityRef = useRef<HTMLInputElement>(null);
   const imageRef = useRef<HTMLInputElement>(null);
-  const frameMaterialRef = useRef<HTMLInputElement>(null);
-  const frameShapeRef = useRef<HTMLInputElement>(null);
-  const lensTypeRef = useRef<HTMLInputElement>(null);
+  const frameMaterialRef = useRef<HTMLOptionElement>(null);
+  const frameShapeRef = useRef<HTMLOptionElement>(null);
+  const lensTypeRef = useRef<HTMLOptionElement>(null);
   const brandRef = useRef<HTMLInputElement>(null);
-  const genderRef = useRef<HTMLInputElement>(null);
+  const genderRef = useRef<HTMLOptionElement>(null);
   const colorRef = useRef<HTMLInputElement>(null);
 
   const [postEyeGlass, { isLoading, isError, isSuccess }] =
@@ -55,12 +55,12 @@ const AddEyeGlass = () => {
     (event.target as HTMLFormElement).reset();
   };
   return (
-    <div className="max-w-7xl mx-auto mt-5">
-      <h2 className="text-3xl font-semibold p-5 text-center">
+    <div className="max-w-5xl mx-auto mt-5">
+      <h2 className="text-3xl font-semibold p-5 text-center text-amber-300">
         {" "}
         Add New Eye Glass
       </h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="my-12">
         <div className="grid gap-2">
           <div className="grid gap-1">
             <input
@@ -70,7 +70,6 @@ const AddEyeGlass = () => {
               type="text"
               ref={nameRef}
             />
-
             <input
               className="input input-bordered"
               id="price"
@@ -78,7 +77,6 @@ const AddEyeGlass = () => {
               type="text"
               ref={priceRef}
             />
-
             <input
               className="input input-bordered"
               id="quantity"
@@ -86,7 +84,6 @@ const AddEyeGlass = () => {
               type="text"
               ref={quantityRef}
             />
-
             <input
               className="input input-bordered"
               id="image"
@@ -94,31 +91,42 @@ const AddEyeGlass = () => {
               type="text"
               ref={imageRef}
             />
-
-            <input
-              className="input input-bordered"
-              id="frameMaterial"
-              placeholder="frameMaterial"
-              type="text"
-              ref={frameMaterialRef}
-            />
-
-            <input
-              className="input input-bordered"
-              id="frameShape"
-              placeholder="frameShape"
-              type="text"
-              ref={frameShapeRef}
-            />
-
-            <input
-              className="input input-bordered"
-              id="lensType"
-              placeholder="lensType"
-              type="text"
-              ref={lensTypeRef}
-            />
-
+            <label className="font-bold  text-amber-300">Frame Material</label>
+            <select className="input input-bordered" id="frameMaterial">
+              <option ref={frameMaterialRef} value="plastic">
+                Plastic
+              </option>
+              <option ref={frameMaterialRef} value="acetate">
+                Acetate
+              </option>
+              <option ref={frameMaterialRef} value="metal">
+                Metal
+              </option>
+            </select>
+            <label className="font-bold  text-amber-300">Frame Shape</label>
+            <select className="input input-bordered" id="frameShape">
+              <option ref={frameShapeRef} value="rectangular">
+                Rectangular
+              </option>
+              <option ref={frameShapeRef} value="round">
+                Round
+              </option>
+              <option ref={frameShapeRef} value="cat-eye">
+                Cat-Eye
+              </option>
+            </select>
+            <label className="font-bold  text-amber-300">Lens Type</label>
+            <select className="input input-bordered" id="lensType">
+              <option ref={lensTypeRef} value="single-vision">
+                single-vision
+              </option>
+              <option ref={lensTypeRef} value="bifocal">
+                bifocal
+              </option>
+              <option ref={lensTypeRef} value="progressive">
+                progressive
+              </option>
+            </select>
             <input
               className="input input-bordered"
               id="brand"
@@ -126,15 +134,18 @@ const AddEyeGlass = () => {
               type="text"
               ref={brandRef}
             />
-
-            <input
-              className="input input-bordered"
-              id="gender"
-              placeholder="gender"
-              type="text"
-              ref={genderRef}
-            />
-
+            <label className="font-bold  text-amber-300">Gender</label>
+            <select className="input input-bordered" id="gender">
+              <option ref={genderRef} value="men">
+                Men
+              </option>
+              <option ref={genderRef} value="women">
+                Women
+              </option>
+              <option ref={genderRef} value="unisex">
+                unisex
+              </option>
+            </select>
             <input
               className="input input-bordered"
               id="color"
@@ -145,7 +156,7 @@ const AddEyeGlass = () => {
           </div>
           <button
             type="submit"
-            className="rounded-full h-15 w-15 p-2 text-1xl bg-teal-300"
+            className="rounded-full h-15 w-15 p-2 text-1xl  bg-amber-300 text-slate-600 font-bold font-bold"
           >
             Add Eye Glass
           </button>
